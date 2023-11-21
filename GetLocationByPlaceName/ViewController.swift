@@ -13,6 +13,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         PlaceToLocationManager.shared.getLocation(by: "taipei arena")
+        
+        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 2) {
+            PlaceToLocationManager.shared.searchPlaceByGoogleSDK(name: "taipei arena")
+        }
     }
 
 
